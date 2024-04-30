@@ -10,7 +10,7 @@ interface AppbarProps {
   png: any
 }
 
-export const Appbar = ({ user, onSignin, onSignout,png }: AppbarProps) => {
+export  const Appbar = ({ user, onSignin, onSignout,png }: AppbarProps) => {
   return (
     <div className="flex justify-between border-b-2 px-4 border-slate-300">
       <div className="text-3xl flex flex-col justify-center">
@@ -27,3 +27,5 @@ export const Appbar = ({ user, onSignin, onSignout,png }: AppbarProps) => {
     </div>
   );
 };
+
+export default Appbar
