@@ -12,5 +12,8 @@
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
+  },
+  "scripts": { 
+    "start": "npx prisma generate && nodemon app.js"
   }
 }
