@@ -5,6 +5,15 @@ import OnRampTransactions from "../../../components/onRamp";
 import { authOptions } from "../../lib/auth";
 import prisma from "@repo/db/client";
 
+
+interface Transaction {
+    startTime: Date;
+    amount: number;
+    status: string;
+    provider: string;
+}
+
+
 async function getBalance() {
     const session = await getServerSession(authOptions) 
         const  balance = await prisma.balance.findFirst({
@@ -27,7 +36,7 @@ async function getonRamptransaction() {
                 userId: Number(session?.user?.id)
             }
         });
-        return txns.map(t => ({
+        return txns.map((t: Transaction ) => ({
             time: t.startTime,
             amount: t.amount,
             status: t.status,
