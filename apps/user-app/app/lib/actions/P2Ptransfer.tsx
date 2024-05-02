@@ -23,7 +23,8 @@ export async function P2ptransfer(To: string, amount: number) {
     };
   }
 
-  await prisma.$transaction(async (tx) => {
+ 
+  await prisma.$transaction(async (tx: any) => {
     // Locking The Database
     await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId" = ${Number(from)} FOR UPDATE`;
 
